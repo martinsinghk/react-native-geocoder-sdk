@@ -24,5 +24,10 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "workspaces": [
+    "docs",
+    "smoke-tests",
+    "workspaces/*"
+  ]
 }
