@@ -24,6 +24,6 @@ const GeocoderSdk = GeocoderSdkModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return GeocoderSdk.multiply(a, b);
+export function reverseGeocodeLocation(coordinates: any): Promise<any> {
+  return GeocoderSdk.reverseGeocodeLocation(coordinates);
 }
