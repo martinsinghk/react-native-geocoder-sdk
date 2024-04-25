@@ -25,7 +25,7 @@ RCT_EXPORT_METHOD(reverseGeocodeLocation:(NSDictionary *)coordinates
                           @"country": placemark.country ?: [NSNull null],
                           @"region": placemark.region ?: [NSNull null],
                           @"timezone": placemark.timeZone ?: [NSNull null],
-                          @"isoCountryCode": placemark.isoCountryCode ?: [NSNull null],
+                          @"isoCountryCode": placemark.ISOcountryCode ?: [NSNull null],
             });
         } else {
             reject(@"not_found", @"No placemarks found", nil);
