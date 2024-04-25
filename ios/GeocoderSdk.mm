@@ -11,7 +11,7 @@ RCT_EXPORT_METHOD(reverseGeocodeLocation:(NSDictionary *)coordinates
     CLLocationDegrees latitude = [coordinates[@"latitude"] doubleValue];
     CLLocationDegrees longitude = [coordinates[@"longitude"] doubleValue];
     CLLocation *locationObj = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-    
+
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:locationObj completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
@@ -25,6 +25,7 @@ RCT_EXPORT_METHOD(reverseGeocodeLocation:(NSDictionary *)coordinates
                           @"country": placemark.country ?: [NSNull null],
                           @"region": placemark.region ?: [NSNull null],
                           @"timezone": placemark.timeZone ?: [NSNull null],
+                          @"isoCountryCode": placemark.isoCountryCode ?: [NSNull null],
             });
         } else {
             reject(@"not_found", @"No placemarks found", nil);
