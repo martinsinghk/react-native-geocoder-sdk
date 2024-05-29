@@ -5,17 +5,41 @@ This module aims at bridging the mobile Geocoder SDK into React Native.
 ## Installation
 
 ```sh
-npm install react-native-geocoder-sdk
+yarn add react-native-geocoder-sdk
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-geocoder-sdk';
+import { reverseGeocodeLocation } from 'react-native-geocoder-sdk';
 
 // ...
 
-const result = await multiply(3, 7);
+const location = await reverseGeocodeLocation({
+  latitude: latitude,
+  longitude: longitude,
+});
+
+/*
+iOS response format
+{
+  "administrativeArea":"CA",
+  "country":"美國",
+  "inlandWater":null,
+  "isoCountryCode":"US",
+  "locality":"舊金山",
+  "name":"1-99 Stockton St",
+  "ocean":null,
+  "postalCode":"94108",
+  "region":null,
+  "subAdministrativeArea":"舊金山",
+  "subLocality":"Union Square",
+  "subThoroughfare":"1-99",
+  "thoroughfare":"Stockton St",
+  "timezone":null
+}
+*/
+
 ```
 
 ## Contributing
