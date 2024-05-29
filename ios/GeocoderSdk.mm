@@ -5,9 +5,9 @@
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(
-                  reverseGeocodeLocation:(NSDictionary *)coordinates
-                  resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject
+    reverseGeocodeLocation:(NSDictionary *)coordinates
+    resolver:(RCTPromiseResolveBlock)resolve
+    rejecter:(RCTPromiseRejectBlock)reject
 ) {
     CLLocationDegrees latitude = [coordinates[@"latitude"] doubleValue];
     CLLocationDegrees longitude = [coordinates[@"longitude"] doubleValue];
@@ -23,9 +23,21 @@ RCT_EXPORT_METHOD(
         
         if (placemarks && placemarks.count > 0) {
             CLPlacemark *placemark = placemarks.firstObject;
+            CLLocation *location = placemark.location;
+
             resolve(@{
                 // location
-                // @"location": CLLocation?
+                @"location": location ? @{
+                    @"coordinate": @{
+                        @"latitude": location.coordinate.latitude ? @(location.coordinate.latitude) : [NSNull null],
+                        @"longitude": location.coordinate.longitude ? @(location.coordinate.longitude) : [NSNull null],
+                    },
+                    @"altitude": location.altitude ? @(location.altitude) : [NSNull null],
+                    @"horizontalAccuracy": location.horizontalAccuracy ? @(location.horizontalAccuracy) : [NSNull null],
+                    @"verticalAccuracy": location.verticalAccuracy ? @(location.verticalAccuracy) : [NSNull null],
+                    @"course": location.course ? @(location.course) : [NSNull null],
+                    @"speed": location.speed ? @(location.speed) : [NSNull null],
+                } : [NSNull null],
                 @"region": placemark.region ?: [NSNull null],
                 // name
                 @"name": placemark.name ?: [NSNull null],
@@ -46,7 +58,7 @@ RCT_EXPORT_METHOD(
                 @"inlandWater": placemark.inlandWater ?: [NSNull null],
                 @"ocean": placemark.ocean ?: [NSNull null],
                 // points of interest
-                // @"areasOfInterest": [String]?
+                @"areasOfInterest": placemark.areasOfInterest ?: [NSNull null],
                 // time zone
                 @"timezone": placemark.timeZone ?: [NSNull null],
             

@@ -16,27 +16,39 @@ import { reverseGeocodeLocation } from 'react-native-geocoder-sdk';
 // ...
 
 const location = await reverseGeocodeLocation({
-  latitude: latitude,
-  longitude: longitude,
+  latitude: 37.785834,
+  longitude: -122.406417,
 });
 
 /*
-iOS response format
+iOS response sample
 {
-  "administrativeArea":"CA",
-  "country":"美國",
-  "inlandWater":null,
-  "isoCountryCode":"US",
-  "locality":"舊金山",
-  "name":"1-99 Stockton St",
-  "ocean":null,
-  "postalCode":"94108",
-  "region":null,
-  "subAdministrativeArea":"舊金山",
-  "subLocality":"Union Square",
-  "subThoroughfare":"1-99",
-  "thoroughfare":"Stockton St",
-  "timezone":null
+   "administrativeArea":"CA",
+   "areasOfInterest":null,
+   "country":"美國",
+   "inlandWater":null,
+   "isoCountryCode":"US",
+   "locality":"舊金山",
+   "location":{
+      "altitude":null,
+      "coordinate":{
+         "latitude":37.785834,
+         "longitude":-122.406417
+      },
+      "course":-1,
+      "horizontalAccuracy":100,
+      "speed":-1,
+      "verticalAccuracy":-1
+   },
+   "name":"1-99 Stockton St",
+   "ocean":null,
+   "postalCode":"94108",
+   "region":null,
+   "subAdministrativeArea":"舊金山",
+   "subLocality":"Union Square",
+   "subThoroughfare":"1-99",
+   "thoroughfare":"Stockton St",
+   "timezone":null
 }
 */
 

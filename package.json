@@ -1,6 +1,6 @@
 {
   "name": "react-native-geocoder-sdk",
-  "version": "0.5.0",
+  "version": "0.5.4",
   "description": "This module aims at bridging the mobile Geocoder SDK into React Native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -43,7 +43,7 @@
     "type": "git",
     "url": "git+https://github.com/martinsinghk/react-native-geocoder-sdk.git.git"
   },
-  "author": "Martin Wong <dev@martinwong.net> (https://martinwong.net)",
+  "author": "Martin Wong <support@martinwong.net> (https://martinwong.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/martinsinghk/react-native-geocoder-sdk.git/issues"
